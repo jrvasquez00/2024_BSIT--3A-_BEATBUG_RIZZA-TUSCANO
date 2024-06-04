@@ -1,0 +1,523 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #000000; 
+}
+
+/* Header styles */
+header {
+  background-color: #000000; /* Light green header */
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #fff; /* White text color */
+  text-decoration: none;
+
+}
+
+
+nav ul li a:hover {
+  text-decoration:#0bff9a;
+}
+
+/* Cart icon */
+.cart img,
+.search img{
+  max-width: 20px;
+  height: auto;
+}
+
+/* Search form */
+#search-form {
+  display: none;
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 90vh; /* Use viewport height for full-screen effect */
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire area */
+  object-position: center bottom;
+  filter: brightness(0.5);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  padding: 50px 20px;
+}
+
+.content h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+.content h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+.cta {
+  display: block; /* Change display to block to center the link */
+  margin: 0 auto; /* Set margins to auto to center the link horizontally */
+  text-align: center;
+  padding: 5px 10px; /* Adjust padding as needed */
+  width: 150px;
+  background-color: #36c275; /* Set background color */
+  color: white; /* Set text color */
+  text-decoration: none; /* Remove default underline */
+  border-radius: 5px; /* Add rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.cta:hover {
+  background-color: #a0ffb5; /* Change background color on hover */
+}
+
+
+
+/* Product categories */
+
+.products{
+  background-color: #2a822a;
+}
+
+#products h4,
+#products h2 {
+    text-align: center;
+}
+
+.product-categories {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-categories li {
+  display: inline-block;
+  text-align: center;
+  margin: 0 10px; /* Adjust as needed */
+  width: 100px; /* Fixed width for each item */
+}
+
+.product-categories h3 {
+  margin-top: 10px;
+}
+
+.product-categories img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.best-products image{
+  width: 100;
+  height:  auto;
+}
+
+
+/* Best products */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 30%;
+  margin: 0;
+  padding: 0;
+}
+
+.center h4, .center h2 {
+  text-align: center;
+  margin-bottom: 2px; /* Adjust margin */
+}
+
+/* Additional styling for the content */
+#best-product h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fba254; /* Change color as needed */
+  margin-bottom: 2px; /* Adjust margin */
+}
+
+#best-product h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333; /* Change color as needed */
+  margin-bottom: 2px; /* Adjust margin */
+}
+
+#best-product p {
+  font-size: 16px;
+  color: #000000; /* Change color as needed */
+  margin-bottom: 10px; /* Adjust margin to add space between paragraphs */
+  margin-right: 25px; /* Adjust margin to add space between paragraphs */
+}
+
+
+
+#below {
+  background-color: #B1D7B4;
+  padding: 15px;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 8px;
+}
+
+#below h1{
+  font-size: 20;
+
+}
+
+#shop, #BibimMart, #contacts {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+#shop {
+  grid-column: 1;
+}
+
+#Bibim-Mart {
+  grid-column: 2;
+
+}
+
+#contacts {
+  grid-column: 3;
+}
+
+
+#shop h2, #Bibim-Mart h2, #contacts h2 {
+  color: #10803f;
+  margin-bottom: 10px; 
+  text-align: center; 
+  width: 100%; 
+}
+
+#shop p, #Bibim-Mart p, #contacts p {
+  color: #666;
+  text-align: center;
+  width: 100%; 
+  margin-bottom: 2px;
+}
+
+footer {
+  font-size: 14;
+  text-align: center;
+  margin-bottom: 0%;
+  padding: 5px;
+  background-color: #fdd1bdf1;
+  color: #474747;
+  grid-column: 1 / -1;
+}
+/* info*/
+/* Style for the green bar containing icons */
+/* Style for the green bar containing icons */
+.green-bar {
+  background-color: #486847; /* Green background color */
+  padding: 10px;
+margin-bottom: 20px;
+  margin-left: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Add space between icons and text */
+  width: 70%;
+  border: #000000 solid thin;
+  box-shadow: 0 4px 8px 0 rgba(0,  0, 0, 0.2), 0 6px 20px 0 rgba(0,  0,  0, 0.19);
+  border-radius: 20px; /* Add curvature to the green bar */
+}
+
+/* Style for the icons */
+.icon {
+  margin-right: 10px; /* Add some spacing between icon and text */
+}
+
+/* Style for the images */
+.icon img {
+  width: 50px; /* Adjust as needed */
+  height: auto;
+}
+#about {
+  padding: 10px;
+  
+
+}
+
+.content-b{
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  margin-right: 20px; /* Add spacing between image and text */
+  margin-left: 100px;
+}
+
+.img img {
+  max-width: 500px !important; 
+  height: auto; /* Maintain aspect ratio */
+}
+
+.about-b {
+  flex-grow: 1; /* Allow text to take remaining space */
+}
+
+.about-b h5 {
+  margin-top: 0; /* Remove default margin */
+  color: #ff8c4e;
+}
+.about-b h1 {
+  margin-top: 0; /* Remove default margin */
+  color: #000;
+}
+
+
+.about-b p {
+  margin-bottom: 20px; /* Add some space between paragraphs and buttons */
+  color: #000;
+  text-align: center;
+  margin-right: 100px;
+}
+.cta-button {
+  display: inline-block;
+ margin-left: 20px;
+  text-align: center;
+  padding: 5px 10px;
+  background-color: #c1f4c6;
+  color: rgb(20, 19, 19);
+  text-decoration: none;
+  border-radius: 5px;
+  border-radius:15px;
+  border-color: #1a1a1a;
+  border-width: 2px;
+  border-style: solid;
+}
+.cta-button:hover {
+  background-color: #2c9437;
+}
+
+.cta-button:active {
+  background-color: #10723c;
+}
+
+.cta-button:disabled {
+  cursor:pointer;
+}
+
+
+
+
+/* before adding the img to the div with the 
+"card-img" class, remove css styles 
+.card-img .img::before and .card-img .img::after,
+then set the desired styles for .card-img. */
+.card {
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #c1f4c6;
+  --main-color: #323232;
+  --main-focus: #147a4c;
+  margin: 5px; /* Centers the cards horizontally */
+  width: 200px;
+  height: 250px;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  padding: 15px;
+  gap: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card:last-child {
+  justify-content:center;
+}
+
+.card-img {
+    /* clear and add new css */
+  transition: all 0.5s;
+  display:flex;
+  justify-content: center;
+  align-items: center; 
+}
+.card-img .img {
+  /* Clear existing styles */
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  transform: scale(1);
+  position: sticky;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  border-top-left-radius: 80px 50px;
+  border-top-right-radius: 80px 50px;
+  border: 2px solid black;
+  background-color: #58bc4d;
+  background-image: linear-gradient(to top,transparent 10px,rgba(0,0,0,0.3) 10px,rgba(0,0,0,0.3) 13px,transparent 13px);
+}
+
+.card-img .img::before {
+  /* Clear existing styles */
+  content: '';
+  position: absolute;
+  width: 65px;
+  height: 110px;
+  margin-left: -32.5px;
+  left: 50%;
+  bottom: -4px;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(ellipse at center,rgba(0,0,0,0.7) 30%,transparent 30%),linear-gradient(to top,transparent 17px,rgba(0,0,0,0.3) 17px,rgba(0,0,0,0.3) 20px,transparent 20px),linear-gradient(to right,black 2px,transparent 2px),linear-gradient(to left,black 2px,transparent 2px),linear-gradient(to top,black 2px,#228b22 2px);
+  background-size: 60% 10%,100% 100%,100% 65%,100% 65%,100% 50%;
+  background-position: center 3px,center bottom,center bottom,center bottom,center bottom;
+  border-radius: 0 0 4px 4px;
+  z-index: 2;
+}
+
+.card-img .img::after {
+  /* Clear existing styles */
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  left: 50%;
+  top: -13px;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(80deg,#f4d6c0 45%,transparent 45%),linear-gradient(-175deg,#ffc0cb 45%,transparent 45%),linear-gradient(80deg,rgba(0,0,0,0.2) 51%,rgba(0,0,0,0) 51%),linear-gradient(-175deg,rgba(0,0,0,0.2) 51%,rgba(0,0,0,0) 51%),radial-gradient(circle at center,#ffa6b6 45%,rgba(0,0,0,0.2) 45%,rgba(0,0,0,0.2) 52%,rgba(0,0,0,0) 52%),linear-gradient(45deg,rgba(0,0,0,0) 48%,rgba(0,0,0,0.2) 48%,rgba(0,0,0,0.2) 52%,rgba(0,0,0,0) 52%),linear-gradient(65deg,rgba(0,0,0,0) 48%,rgba(0,0,0,0.2) 48%,rgba(0,0,0,0.2) 52%,rgba(0,0,0,0) 52%),linear-gradient(22deg,rgba(0,0,0,0) 48%,rgba(0,0,0,0.2) 48%,rgba(0,0,0,0.2) 54%,rgba(0,0,0,0) 54%);
+  background-size: 100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 75%,100% 95%,100% 60%;
+  background-position: center center;
+  border-top-left-radius: 120px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 70px;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+/* Add new CSS for row layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the items horizontally */
+  gap: 2px; /* Add some space between the cards */
+  padding-top: 10px; /* Adjust padding as needed */
+  padding-bottom: 40px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--font-color);
+}
+
+.card-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--font-color-sub);
+}
+
+.card-divider {
+  width: 100%;
+  border: 1px solid var(--main-color);
+  border-radius: 50px;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-price {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--font-color);
+}
+
+.card-price span {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--font-color-sub);
+}
+
+.card-btn {
+  height: 35px;
+  background: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  padding: 0 15px;
+  transition: all 0.3s;
+}
+
+.card-btn svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--main-color);
+  transition: all 0.3s;
+}
+
+.card-img:hover {
+  transform: translateY(-3px);
+}
+
+.card-btn:hover {
+  border: 2px solid var(--main-focus);
+}
+
+.card-btn:hover svg {
+  fill: var(--main-focus);
+}
+
+.card-btn:active {
+  transform: translateY(3px);
+}
+
+
