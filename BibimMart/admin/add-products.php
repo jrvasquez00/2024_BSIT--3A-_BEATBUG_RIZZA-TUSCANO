@@ -3,53 +3,13 @@ include ('../middleware/adminMiddleware.php');
 include ('includes/header.php');
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <title>Orders</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            padding: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table th, table td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        table th {
-            background-color: #f2f2f2;
-        }
-        .btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-        }
 
-    </style>
-</head>
 <div class="container">
     <div class="row mt-3">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Add Products
-                    <a href="products.php" class="btn btn-primary float-end"><i class="material-icons">arrow_back</i> Back</a>
-                    </h4>
+                    <h4>Add Products</h4>
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">

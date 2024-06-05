@@ -87,7 +87,7 @@ if (isset($_POST['add_category_btn'])) {
             }
  }
  else if(isset($_POST['add_product_btn'])) {
-    $category_id = $_POST['category_id'];
+    $category_id = $_POST['product_cat_id'];
 
     $name = $_POST['product_name'];
     $description = $_POST['product_desc'];
@@ -187,31 +187,3 @@ if (isset($_POST['add_category_btn'])) {
 
     }
  }
- else if(isset($_POST['delete_product_btn'])) {
-        $product_id = mysqli_real_escape_string($conn, $_POST['product_id']);
-
-        $product_query = "SELECT * FROM products WHERE product_id ='$product_id' ";
-        $product_query_run =mysqli_query($conn, $product_query);
-        $product_data = mysqli_fetch_array($product_query_run);
-        $image = $product_data['product_image'];
-
-        $delete_query = "DELETE FROM products WHERE product_id ='$product_id' ";
-        $delete_query_run = mysqli_query($conn, $delete_query);
-
-        if($delete_query_run){
-
-            if (file_exists("../uploads/".$image)) {
-                unlink("../uploads/".$image);
-                }
-                // redirect("product.php", "Product deleted successfully");
-                echo 200;
-            }
-        else{
-                // redirect("product.php", "Something went wrong :(" );
-                echo 500;
-        }
-
- }
-else{
-    header('Location: ../index.php');
-}

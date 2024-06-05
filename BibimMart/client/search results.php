@@ -4,7 +4,6 @@ session_start();
 
 $conn = connection();
 
-
 $s_user_id = $_SESSION['customer_id'];
 if ($_SESSION['users_user_type'] != 'C') {
   header("location: ../client.php");
@@ -15,12 +14,27 @@ if (isset($_GET['query'])) {
   $search_query = $_GET['query'];
 }
 
-$sql = "SELECT * FROM products WHERE product_name LIKE ?";
+$sql = "SELECT p.*, c.product_cat_name 
+        FROM products p 
+        INNER JOIN product_cat c ON p.product_cat_id = c.product_cat_id
+        WHERE p.product_status = 1 
+        AND (p.product_name LIKE ? OR p.product_desc LIKE ? OR c.product_cat_name LIKE ?)";
 $stmt = $conn->prepare($sql);
+if (!$stmt) {
+  die("Error preparing statement: " . $conn->error);
+}
+
 $search_term = "%" . $search_query . "%";
-$stmt->bind_param("s", $search_term);
-$stmt->execute();
+$stmt->bind_param("sss", $search_term, $search_term, $search_term);
+
+if (!$stmt->execute()) {
+  die("Error executing statement: " . $stmt->error);
+}
+
 $result = $stmt->get_result();
+if (!$result) {
+  die("Error getting result: " . $stmt->error);
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,43 +49,39 @@ $result = $stmt->get_result();
   <link rel="stylesheet" href="../css/style.css" />
   <title>Search Results</title>
 
-      <style>
-        
-        #search form {
-            display: flex;
-            align-items: center;
-            margin-left: 900px;
-        }
+  <style>
+    #search form {
+        display: flex;
+        align-items: center;
+        margin-left: 900px;
+    }
 
-        #search input[type="text"] {
-            width: 170px; 
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-right: 10px;
-            padding: 5px 10px;
-        }
+    #search input[type="text"] {
+        width: 170px; 
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+        padding: 5px 10px;
+    }
 
-        #search button {
-            padding: 5px 10px;
-            background-color: #0bff9a;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    #search button {
+        padding: 5px 10px;
+        background-color: #0bff9a;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-        #search button:hover {
-            background-color: #a0ffb5;
-        }
-
-        
-      </style>
+    #search button:hover {
+        background-color: #a0ffb5;
+    }
+  </style>
 </head>
 <body>
-  
   <header>
-  <nav>
+    <nav>
       <ul>
         <li><a href="client.php">Home</a></li>
         <li><a href="our products.php">See Our Products</a></li>
@@ -86,10 +96,11 @@ $result = $stmt->get_result();
         </li>
         <li class="search">
           <section id="search">
-        <form action="search results.php" method="get">
-            <input type="text" name="query" placeholder="Search for products..." required>
-            <button type="submit">Search</button>
-        </form>
+            <form action="search results.php" method="get">
+                <input type="text" name="query" placeholder="Search for products..." required>
+                <button type="submit">Search</button>
+            </form>
+          </section>
         </li>
       </ul>
     </nav>
@@ -130,30 +141,23 @@ $result = $stmt->get_result();
     </ul>
   </section>
   <script>
+    const searchToggle = document.getElementById('search-toggle');
+    const searchForm = document.getElementById('search-form');
 
-// Toggle search form visibility
-const searchToggle = document.getElementById('search-toggle');
-const searchForm = document.getElementById('search-form');
+    searchToggle.addEventListener('click', () => {
+      if (searchForm.style.display === 'none' || searchForm.style.display === '') {
+        searchForm.style.display = 'block';
+      } else {
+        searchForm.style.display = 'none';
+      }
+    });
 
-searchToggle.addEventListener('click', () => {
-  if (searchForm.style.display === 'none' || searchForm.style.display === '') {
-    searchForm.style.display = 'block';
-  } else {
-    searchForm.style.display = 'none';
-  }
-});
-
-// Function to add item to cart
-function addToCart(itemName, itemPrice) {
-  // Perform addition to cart functionality
-  // For demonstration, let's just increase the cart count by 1
-  var cartCountElement = document.getElementById('cart-count');
-  var currentCount = parseInt(cartCountElement.textContent);
-  cartCountElement.textContent = currentCount + 1;
-}
-
-// Call the function to update cart count on page load
-updateCartCount();
-</script>
+    function addToCart(itemName, itemPrice) {
+      var cartCountElement = document.getElementById('cart-count');
+      var currentCount = parseInt(cartCountElement.textContent);
+      cartCountElement.textContent = currentCount + 1;
+    }
+    updateCartCount();
+  </script>
 </body>
 </html>

@@ -2,6 +2,8 @@
 include ('../myfunctions.php');
 
 $category_id = isset($_GET['product_cat_id']) ? $_GET['product_cat_id'] : '';
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -247,7 +249,7 @@ $category_id = isset($_GET['product_cat_id']) ? $_GET['product_cat_id'] : '';
                     <h2 class="mt-5">Products</h2>
                     <div class="product-container row">
                         <?php
-                        $ourproducts = getAllTrending("products");
+                        $ourproducts = getAllActive("products");
                         if ($ourproducts === false) {
                             echo "Error fetching products: " . mysqli_error($con);
                         } else {
@@ -344,24 +346,24 @@ $category_id = isset($_GET['product_cat_id']) ? $_GET['product_cat_id'] : '';
             });
 
             function fetchProductsByCategory(categoryId) {
-                fetch(`category_result.php?product_cat_id=${categoryId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        const container = document.querySelector('.product-container');
-                        container.innerHTML = '';
+  fetch(`category_result.php?product_cat_id=${categoryId}&product_status=1`)
+    .then(response => response.json())
+    .then(data => {
+      const container = document.querySelector('.product-container');
+      container.innerHTML = '';
 
-                        if (data.error) {
-                            container.innerHTML = `<p>${data.error}</p>`;
-                        } else {
-                            container.innerHTML = data.html;
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error fetching products:', error);
-                        const container = document.querySelector('.product-container');
-                        container.innerHTML = `<p>Error fetching products</p>`;
-                    });
-            }
+      if (data.error) {
+        container.innerHTML = `<p>${data.error}</p>`;
+      } else {
+        container.innerHTML = data.html;
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching products:', error);
+      const container = document.querySelector('.product-container');
+      container.innerHTML = `<p>Error fetching products</p>`;
+    });
+}
         });
     </script>
 

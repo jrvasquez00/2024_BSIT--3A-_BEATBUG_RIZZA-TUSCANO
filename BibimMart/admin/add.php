@@ -4,7 +4,7 @@ if(isset($_POST['f_product_name'])) {
     
     // Check if the file has been uploaded
     if(isset($_FILES["f_product_img"])) {
-        $target_dir = "../img/";
+        $target_dir = "../uploads/";
         $target_file = $target_dir . basename($_FILES["f_product_img"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));

@@ -36,13 +36,14 @@ function getByIDcat($table, $id){
 }
 function getProductsByCategory($category_id){
     global $conn;
-    $query = "SELECT * FROM products WHERE product_cat_id='$category_id'";
+    $query = "SELECT * FROM products WHERE product_cat_id='$category_id' AND product_status = 1";
     $query_run = mysqli_query($conn, $query);
     if(!$query_run) {
         die("Query Failed: " . mysqli_error($conn));
     }
     return $query_run;
 }
+
 
 
 function getAllActive($table){
